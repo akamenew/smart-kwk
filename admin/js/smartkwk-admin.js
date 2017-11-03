@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
+    'use strict';
 
-// jQuery on an empty object, we are going to use this as our Queue
+    // jQuery on an empty object, we are going to use this as our Queue
     var ajaxQueue = $({});
     $.ajaxQueue = function (ajaxOpts) {
         var jqXHR,
@@ -57,7 +58,6 @@ jQuery(document).ready(function ($) {
             }
     );
     $("#vouchertable").on('dblclick', '.stkwk_editable', function () {
-
         var code = $(this).text();
         $(this).html('<input class="edited_field" type="text"  value="' + code + '"/>');
         $(this).find('input').focus();
@@ -71,7 +71,7 @@ jQuery(document).ready(function ($) {
         el.parent().addClass('stkwk_editable');
         el.parent().append('<img style="float:right;" src="' + SmartKwk.img + '/wpspin_light.gif" alt="loading..."/>');
         var postData = {
-            action: 'stkwk_save_voucher',
+            action: 'save_voucher',
             vid: vid,
             code: code
         }
@@ -115,7 +115,7 @@ jQuery(document).ready(function ($) {
         el.hide();
         el.parent().append('<img src="' + SmartKwk.img + '/wpspin_light.gif" alt="loading..."/>');
         var postData = {
-            action: 'stkwk_send_voucher',
+            action: 'send_voucher',
             ref: refid,
         };
         $.ajax({
@@ -149,7 +149,7 @@ jQuery(document).ready(function ($) {
         el.hide();
         el.parent().append('<img src="' + SmartKwk.img + '/wpspin_light.gif" alt="loading..."/>');
         var postData = {
-            action: 'stkwk_change_status',
+            action: 'change_status',
             ref: refid,
             newstatus: newStatus,
         };
@@ -197,7 +197,7 @@ jQuery(document).ready(function ($) {
                 elem.parent().append('<img src="' + SmartKwk.img + '/wpspin_light.gif" alt="loading..."/>');
                 $.ajaxQueue({
                     url: SmartKwk.ajaxurl,
-                    data: {'action': 'stkwk_api_request', 'rid': elem.val()},
+                    data: {'action': 'api_request', 'rid': elem.val()},
                     type: 'POST',
                     success: function (data) {
                         elem.parent().text(data.message);
@@ -226,7 +226,7 @@ jQuery(document).ready(function ($) {
                 el.hide();
                 el.parent().append('<img src="' + SmartKwk.img + '/wpspin_light.gif" alt="loading..."/>');
                 var postData = {
-                    action: 'stkwk_send_voucher',
+                    action: 'send_voucher',
                     ref: refid,
                 };
                 $.ajaxQueue({
@@ -243,5 +243,5 @@ jQuery(document).ready(function ($) {
             alert('Keine Gutscheine zum Versenden.');
         }
     });
-});
 
+});

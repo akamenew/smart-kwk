@@ -1,0 +1,29 @@
+/**
+ * Admin/backend CSS
+ */
+
+.input_left_emailtpl{
+    float:left;
+    width: 48%;
+}
+
+.input_left_emailtpl textarea {
+    width:100%;
+    height:305px;
+}
+
+.emailtpl_iframe_wrap{
+    float:left;
+    width: 48%;
+    margin-left: 2%;
+    border: 1px solid #ccc;
+}
+
+.emailtpl_iframe_wrap iframe {
+    width: 100%; 
+    height: 300px;
+}
+
+.tablenav-pages {
+    margin: 1em 0;
+}
