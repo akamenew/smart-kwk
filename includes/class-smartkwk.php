@@ -156,7 +156,7 @@ class Smartkwk {
         $this->loader->add_action('admin_post_save_emailtemplate', $plugin_admin, 'save_emailtemplate');
 
         $this->loader->add_action('display_tab', $plugin_admin, 'display_tab');
-        
+
         $this->loader->add_action('plugin_action_links_' . SMARTKWK_PLUGIN_BASENAME, $plugin_admin, 'plugin_action_links', 10, 2);
 
         $this->loader->add_action('wp_ajax_api_request', $plugin_admin, 'api_request');

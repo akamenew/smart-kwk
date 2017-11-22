@@ -42,7 +42,7 @@ jQuery(document).ready(function ($) {
     $('#import_vouchers').click(function (e) {
         if (!$('#voucher_file').val().length) {
             e.preventDefault();
-            alert('Bitte Datei auswählen');
+            alert('Choose file');
         } else {
             $(this).parent().append('<img src="' + SmartKwk.img + '/wpspin_light.gif" alt="loading..."/>');
         }
@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
 
     $('#overviewTable').on('click', '.sendVoucherButton', function () {
 
-        if (!confirm('Gutschein jetzt versenden?')) {
+        if (!confirm('Send voucher now?')) {
             return;
         }
 
@@ -137,7 +137,7 @@ jQuery(document).ready(function ($) {
 
     $('#overviewTable').on('click', '.changeStatusButton', function () {
 
-        if (!confirm('Status wirklich ändern?')) {
+        if (!confirm('Sure?')) {
             return;
         }
 
@@ -168,12 +168,12 @@ jQuery(document).ready(function ($) {
 
                     if (response.newstatus == 'accepted') {
                         nextstatus = 'denied';
-                        nextstatustext = 'Ablehnen';
+                        nextstatustext = 'Deny';
                         buttonstatus = 'secondary';
                         voucherCol.html('<button class="sendVoucherButton button button-large" rid="' + refid + '">Gutschein versenden</button>');
                     } else {
                         nextstatus = 'accepted';
-                        nextstatustext = 'Bestätigen';
+                        nextstatustext = 'Approve';
                         buttonstatus = 'primary';
                         voucherCol.html('');
                     }
@@ -205,13 +205,13 @@ jQuery(document).ready(function ($) {
                 });
             });
         } else {
-            alert('Abfragen bereits durchgeführt.');
+            alert('Requests already done');
         }
     });
     //trigger all "gutschein senden" buttons
     $('#bulk_send_btn').click(function () {
 
-        if (!confirm('Gutscheine jetzt an alle versenden?')) {
+        if (!confirm('Send vouchers to all?')) {
             return;
         }
 
@@ -240,7 +240,7 @@ jQuery(document).ready(function ($) {
                 });
             });
         } else {
-            alert('Keine Gutscheine zum Versenden.');
+            alert('No vouchers to send');
         }
     });
 
